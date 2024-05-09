@@ -15,7 +15,7 @@ project pSix "Web Game"  2023-03-15 +2.5m {
   numberformat "-" "" "." "," 2
   # Use Eurpean financial format for currency values. Don't show cents.
   currencyformat "-" "" "." "," 2
-  
+
   # Pick a day during the project that will be reported as 'today' in
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
@@ -70,6 +70,11 @@ resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
 
+resource Ignacio "Ignacio Millán"{
+  email "841537@unizar.es"
+  rate 14
+  shifts t4h
+}
 # Now we specify the work packages. The whole project is described as
 # a task that contains subtasks. These subtasks are then broken down
 # into smaller tasks and so on. The innermost tasks describe the real
@@ -90,6 +95,46 @@ task WMGame "Web & Mobile Game" {
       effort 2d
       allocate boss
       depends WMGame.deliveries.start
+  }
+
+  task tbackcloud "Despliegue Back end cloud" {
+    # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
+    purge chargeset
+    chargeset back
+    responsible Hector
+    depends WMGame.tback
+    task tResearch "Research and Comparison of Alternatives" {
+      effort 5d
+      allocate Hector
+    }
+    task tupcloud "Cloud Deployment" {
+      effort 2d
+      actual:effort 1d
+      allocate dev1
+      depends WMGame.tbackcloud.tResearch
+    }
+    journalentry 2023-04-28"Cloud selection" {
+        author dev1
+        alert green
+        summary "AWS and Azure have been selected as the leading candidates."
+      }
+  }
+
+  task tAndrod "Front End Mobile" {
+    purge chargeset
+    chargeset mFront
+    responsible dev1
+    depends WMGame.tgdesign
+    task tMobileDisenno "Front End General Design" {
+      effort 2d
+      allocate dev3
+    }
+    task tAndroidImplementacion "Mobile Front End Construction" {
+      effort 7d
+      actual:effort 1d
+      allocate dev1
+      depends WMGame.tAndroid.tMobileDisenno
+    }
   }
 
   task tback "Back End" {
@@ -149,6 +194,7 @@ task WMGame "Web & Mobile Game" {
   }
 
   task ttest "Accpetance tests" {
+    start 2023-06-01
       effort 10d
       allocate boss
       allocate dev2
