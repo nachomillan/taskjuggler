@@ -112,7 +112,7 @@ task WMGame "Web & Mobile Game" {
       effort 2d
       actual:effort 1d
       allocate dev1
-      depends WMGame.tbackcloud.tResearch
+      depends WMGame.tBackyCloud.tResearch
     }
     journalentry 2023-04-28"Cloud selection" {
         author dev1
