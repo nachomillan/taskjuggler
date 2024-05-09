@@ -121,23 +121,23 @@ task WMGame "Web & Mobile Game" {
   #    }
   #}
 
-  task tAndroid "Front Ent Mobile" {
-    # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
-    purge chargeset
-    chargeset mFront
-    responsible dev1
-    depends WMGame.tgdesign
-    task tMobileDisenno "Front End General Design" {
-      effort 2d
-      allocate dev3
-    }
-    task tAndroidImplementacion "Mobile Front End Construction" {
-      effort 7d
-      actual:effort 1d
-      allocate dev1
-      depends WMGame.tAndroid.tMobileDisenno
-    }
-  }
+  #task tAndroid "Front Ent Mobile" {
+  #  # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
+  #  purge chargeset
+  #  chargeset mFront
+  #  responsible dev1
+  #  depends WMGame.tgdesign
+  #  task tMobileDisenno "Front End General Design" {
+  #    effort 2d
+  #    allocate dev3
+  #  }
+  #  task tAndroidImplementacion "Mobile Front End Construction" {
+  #    effort 7d
+  #    actual:effort 1d
+  #    allocate dev1
+  #    depends WMGame.tAndroid.tMobileDisenno
+  #  }
+  #}
 
   task tback "Back End" {
     # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
