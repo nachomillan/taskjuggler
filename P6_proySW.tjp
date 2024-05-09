@@ -102,11 +102,11 @@ task WMGame "Web & Mobile Game" {
     # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
     purge chargeset
     chargeset back
-    responsible Hector
+    responsible Ignacio
     depends WMGame.tback
     task tResearch "Research and Comparison of Alternatives" {
       effort 5d
-      allocate Hector
+      allocate Ignacio
     }
     task tupcloud "Cloud Deployment" {
       effort 2d
