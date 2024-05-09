@@ -67,15 +67,15 @@ resource dev2 "Samantha Müller" {
 resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
-shift 4h "monday - friday 4h" {
-  workinghours mon - fri 8:00-12:00
-}
-
-resource Ignacio "Ignacio Millan" {
-  email "841537@unizar.es"
-  rate 14
-  shifts 4h
-}
+#shift 4h "monday - friday 4h" {
+#  workinghours mon - fri 8:00-12:00
+#}
+#
+#resource Ignacio "Ignacio Millan" {
+#  email "841537@unizar.es"
+#  rate 14
+#  shifts 4h
+#}
 # Now we specify the work packages. The whole project is described as
 # a task that contains subtasks. These subtasks are then broken down
 # into smaller tasks and so on. The innermost tasks describe the real
