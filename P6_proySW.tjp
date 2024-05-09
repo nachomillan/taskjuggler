@@ -338,10 +338,13 @@ macro AlertColor [
 ]
 
 taskreport informeplanificacion "" {
+  scenarios actual
   headline "Informe de Planificación Inicial"
   columns bsi { title 'WBS' },
           name, start, end, effort, cost,
           revenue, chart { ${TaskTip} }
+  # For this report we like to have the abbreviated weekday in front
+  # of the date. %a is the tag for this.
   timeformat "%a %Y-%m-%d"
   loadunit days
   hideresource @all
