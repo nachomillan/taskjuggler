@@ -98,28 +98,28 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.deliveries.start
   }
 
-  task tbackcloud "Despliegue Back end cloud" {
-    # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
-    purge chargeset
-    chargeset back
-    responsible Hector
-    depends WMGame.tback
-    task tResearch "Research and Comparison of Alternatives" {
-      effort 5d
-      allocate Hector
-    }
-    task tupcloud "Cloud Deployment" {
-      effort 2d
-      actual:effort 1d
-      allocate dev1
-      depends WMGame.tbackcloud.tResearch
-    }
-    journalentry 2023-04-28"Cloud selection" {
-        author dev1
-        alert green
-        summary "AWS and Azure have been selected as the leading candidates."
-      }
-  }
+  #task tbackcloud "Despliegue Back end cloud" {
+  #  # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
+  #  purge chargeset
+  #  chargeset back
+  #  responsible Hector
+  #  depends WMGame.tback
+  #  task tResearch "Research and Comparison of Alternatives" {
+  #    effort 5d
+  #    allocate Hector
+  #  }
+  #  task tupcloud "Cloud Deployment" {
+  #    effort 2d
+  #    actual:effort 1d
+  #    allocate dev1
+  #    depends WMGame.tbackcloud.tResearch
+  #  }
+  #  journalentry 2023-04-28"Cloud selection" {
+  #      author dev1
+  #      alert green
+  #      summary "AWS and Azure have been selected as the leading candidates."
+  #    }
+  #}
 
   task tAndroid "Front Ent Mobile" {
     # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
